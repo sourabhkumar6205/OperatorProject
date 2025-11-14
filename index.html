@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Project</title>
+
+    <!-- INTERNAL CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef1f6;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        form {
+            width: 330px;
+            margin: auto;
+            background: gray;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.15);
+        }
+
+        input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-top: 5px;
+            background-color: yellowgreen;
+        }
+
+        #res {
+            background: red;
+            font-weight: bold;
+        }
+
+        button {
+            width: 45px;
+            height: 45px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            background: #4a73f3;
+            color: blanchedalmond;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #365ed8;
+        }
+
+        button:focus {
+            outline: 3px solid #ffcc00;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Project-1 based on operator</h1>
+
+    <form>
+        Number-1:<br>
+        <input id="d1" type="text" autocomplete="off"><br><br>
+
+        Number-2:<br>
+        <input id="d2" type="text" autocomplete="off"><br><br>
+
+        <button id="c1" type="button" onclick="addbtn()">+</button>
+        <button id="c2" type="button" onclick="subbtn()">-</button>
+        <button id="c3" type="button" onclick="mulbtn()">*</button>
+        <button id="c4" type="button" onclick="divbtn()">/</button>
+        <button id="c5" type="button" onclick="molbtn()">%</button><br><br>
+
+        Result:<br>
+        <input type="text" id="res">
+    </form>
+
+    <script>
+        function addbtn(){
+            let n1=Number(document.getElementById("d1").value)
+            let n2=Number(document.getElementById("d2").value)
+            let sum=n1+n2
+            document.getElementById("res").value=sum  
+            document.getElementById("d1").value="" 
+            document.getElementById("d2").value="" 
+        }
+        function subbtn(){
+            let n1=Number(document.getElementById("d1").value)
+            let n2=Number(document.getElementById("d2").value)
+            let sub=n1-n2
+            document.getElementById("res").value=sub  
+            document.getElementById("d1").value="" 
+            document.getElementById("d2").value="" 
+        }
+        function mulbtn(){
+            let n1=Number(document.getElementById("d1").value)
+            let n2=Number(document.getElementById("d2").value)
+            let mul=n1*n2
+            document.getElementById("res").value=mul  
+            document.getElementById("d1").value="" 
+            document.getElementById("d2").value="" 
+        }
+        function divbtn(){
+            let n1=Number(document.getElementById("d1").value)
+            let n2=Number(document.getElementById("d2").value)
+            let div=n1/n2
+            document.getElementById("res").value=div  
+            document.getElementById("d1").value="" 
+            document.getElementById("d2").value="" 
+        }
+        function molbtn(){
+            let n1=Number(document.getElementById("d1").value)
+            let n2=Number(document.getElementById("d2").value)
+            let mol=n1%n2
+            document.getElementById("res").value=mol  
+            document.getElementById("d1").value="" 
+            document.getElementById("d2").value="" 
+        }
+
+        document.getElementById("d1").addEventListener("keypress", function(msg){
+            if (msg.key=="Enter"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }})
+
+        document.getElementById("d2").addEventListener("keypress", function(msg){
+            if (msg.key=="Enter"){
+                msg.preventDefault()
+                document.getElementById("c1").focus()
+            }})
+
+        document.getElementById("c1").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowRight"){
+                msg.preventDefault()
+                document.getElementById("c2").focus()
+            }})
+
+        document.getElementById("c2").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowRight"){
+                msg.preventDefault()
+                document.getElementById("c3").focus()
+            }})
+
+        document.getElementById("c3").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowRight"){
+                msg.preventDefault()
+                document.getElementById("c4").focus()
+            }})
+
+        document.getElementById("c4").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowRight"){
+                msg.preventDefault()
+                document.getElementById("c5").focus()
+            }})
+
+        document.getElementById("c5").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowLeft"){
+                msg.preventDefault()
+                document.getElementById("c4").focus()
+            }})
+
+        document.getElementById("c4").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowLeft"){
+                msg.preventDefault()
+                document.getElementById("c3").focus()
+            }})
+
+        document.getElementById("c3").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowLeft"){
+                msg.preventDefault()
+                document.getElementById("c2").focus()
+            }})
+
+        document.getElementById("c2").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowLeft"){
+                msg.preventDefault()
+                document.getElementById("c1").focus()
+            }})
+
+        document.getElementById("c1").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowUp"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }})
+
+        document.getElementById("d2").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowUp"){
+                msg.preventDefault()
+                document.getElementById("d1").focus()
+            }})
+
+        document.getElementById("d1").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowDown"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }})
+
+        document.getElementById("d2").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowDown"){
+                msg.preventDefault()
+                document.getElementById("c1").focus()
+            }})
+
+        document.getElementById("c2").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowUp"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }})
+
+        document.getElementById("c3").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowUp"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }})
+
+        document.getElementById("c4").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowUp"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }})
+
+        document.getElementById("c5").addEventListener("keydown", function(msg){
+            if (msg.key=="ArrowUp"){
+                msg.preventDefault()
+                document.getElementById("d2").focus()
+            }})
+    </script>
+</body>
+</html>
