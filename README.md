@@ -62,7 +62,10 @@ project-folder/
 
 ## Screenshots
 
-(You can add your own screenshots here once uploaded to GitHub.)
+<img width="607" height="618" alt="image" src="https://github.com/user-attachments/assets/57b68685-22f5-46d0-bd15-e4ded612eb70" />
+
+<img width="596" height="597" alt="image" src="https://github.com/user-attachments/assets/7724fef0-28f1-4477-9284-39b3e426569c" />
+
 
 ---
 
